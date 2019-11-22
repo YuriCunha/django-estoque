@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<form action="{% url 'corUpdate' pk %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="button">Enviar</button>
+</form>
+{% endblock %}

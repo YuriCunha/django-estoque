@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block conteudos %}
+    
+    <h1>Tabela de nomes</h1>
+
+    <table class="pure-table pure-table-bordered">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Idade</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lst in lista %}
+          <tr>
+            <td>{{ lst.nome }}</td>
+            <td>{{ lst.idade }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+    <a class="pure-button pure-button-primary" href="{% url 'cor' %}">Cor</a>
+{% endblock  %}

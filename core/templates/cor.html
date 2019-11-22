@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+  <a class="pure-button pure-button-primary" href="{% url 'corNews' %}">Novo</a>
+  <br>
+  <h1>Tabela de nomes</h1>
+
+  <table class="pure-table pure-table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Cor</th>
+        <th>Slug</th>
+        <th>Criado</th>
+        <th>Modificado</th>
+        <th colspan="2">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cor in cores %}
+        <tr>
+          <td>{{ cor.id }}</td>
+          <td>{{ cor.cor }}</td>
+          <td>{{ cor.slug }}</td>
+          <td>{{ cor.criado }}</td>
+          <td>{{ cor.modificado }}</td>
+          <td><a href="{% url 'corDelete' cor.id %}">deletar</a></td>
+          <td><a href="{% url 'corUpdate' cor.id %}">alterar</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <a href="{% url 'index' %}">Voltar</a>
+{% endblock  %}
+
